@@ -1,9 +1,10 @@
 function removeVowels(word) {
-  var characters = word.split("");
+  var characters = word.split(""); 
 
   var result = [];
 
   characters.forEach(function(character) {
+    console.log(character)
     if (
       character === "a" ||
       character === "o" ||

@@ -46,13 +46,15 @@ function myFunction(salary, taxCode, incomeTax1, incomeTax2, ownsCar) {
   var originalSalary = salary;
   var nationalInsurance = null;
 
-  if (taxCode === "1150L") {
+  if(taxCode === "1150L") {
     nationalInsurance = salary * 0.1;
-  } else if (taxCode === "ST") {
+   } 
+  else if(taxCode === "ST") {
     nationalInsurance = salary * 0.05;
-  } else {
+   } 
+  else{
     nationalInsurance = salary * 0.08;
-  }
+   }
 
   var deductions = [nationalInsurance, totalIncomeTax, studentLoan];
 
@@ -61,9 +63,9 @@ function myFunction(salary, taxCode, incomeTax1, incomeTax2, ownsCar) {
   salary = salary - deductions[2];
 
   return (
-    "Your gross income is £" +
+    "Your gross income is ï¿½" +
     originalSalary.toString() +
-    " and your net income is £" +
+    " and your net income is ï¿½" +
     salary.toString() +
     "."
   );
