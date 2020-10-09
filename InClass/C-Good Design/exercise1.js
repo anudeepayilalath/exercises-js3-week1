@@ -39,36 +39,64 @@
    
    */
 
+// function myFunction(salary, taxCode, incomeTax1, incomeTax2, ownsCar) {
+//   var totalIncomeTax = incomeTax1 + incomeTax2;
+//   var studentLoan = (salary - 17775) * 0.09;
+//   var originalSalary = salary;
+//   var nationalInsurance = null;
 
-function myFunction(salary, taxCode, incomeTax1, incomeTax2, ownsCar) {
-  var totalIncomeTax = incomeTax1 + incomeTax2;
-  var studentLoan = (salary - 17775) * 0.09;
-  var originalSalary = salary;
-  var nationalInsurance = null;
+//   if(taxCode === "1150L") {
+//     nationalInsurance = salary * 0.1;
+//    } 
+//   else if(taxCode === "ST") {
+//     nationalInsurance = salary * 0.05;
+//    } 
+//   else{
+//     nationalInsurance = salary * 0.08;
+//    }
 
-  if(taxCode === "1150L") {
-    nationalInsurance = salary * 0.1;
-   } 
-  else if(taxCode === "ST") {
-    nationalInsurance = salary * 0.05;
-   } 
-  else{
-    nationalInsurance = salary * 0.08;
-   }
+//   var deductions = [nationalInsurance, totalIncomeTax, studentLoan];
 
-  var deductions = [nationalInsurance, totalIncomeTax, studentLoan];
+//   salary = salary - deductions[0];
+//   salary = salary - deductions[1];
+//   salary = salary - deductions[2];
 
-  salary = salary - deductions[0];
-  salary = salary - deductions[1];
-  salary = salary - deductions[2];
+//   return (
+//     "Your gross income is �" +
+//     originalSalary.toString() +
+//     " and your net income is �" +
+//     salary.toString() +
+//     "."
+//   );
+// }
 
-  return (
-    "Your gross income is �" +
-    originalSalary.toString() +
-    " and your net income is �" +
-    salary.toString() +
-    "."
-  );
+// console.log(myFunction(28000, "1150L", 1000, 580, false));
+
+//answers
+function getMyMoney(salary, taxCode, incomeTax) {
+   var [incomeTax1, incomeTax2] = incomeTax;
+   var totalIncomeTax = incomeTax1 + incomeTax2;
+   var studentLoan = getStudentLoan(17775, 0.09, salary);
+   var originalSalary = salary;
+   var nationalInsurance = getNationalInsurance(taxCode, salary);
+   salary = salary - nationalInsurance - totalIncomeTax - studentLoan;
+
+   return `Your gross income is $ ${originalSalary} and your net income is $ ${salary.toString()} .`;
 }
 
-console.log(myFunction(28000, "1150L", 1000, 580, false));
+function getStudentLoan(sum, percent, salary) {
+   return (salary - sum) * percent;
+}
+
+function getNationalInsurance(taxCode, salary) {
+   if (taxCode === "1150L") {
+      nationalInsurance = salary * 0.1;
+   } else if (taxCode === "ST") {
+      nationalInsurance = salary * 0.05;
+   } else {
+      nationalInsurance = salary * 0.08;
+   }
+   return nationalInsurance;
+}
+
+console.log(getMyMoney(28000, "1150L", [1000, 580]));

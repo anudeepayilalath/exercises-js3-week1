@@ -34,7 +34,12 @@ function removeVowelsForWords(words) {
   Let's trace this piece of code - what is the value of result with this input
   */
   var result = removeVowels('samuel');
-
+  s
+  a
+  m
+  u
+  e
+  l
 
 
 /*
@@ -42,4 +47,6 @@ function removeVowelsForWords(words) {
 	Trace what happens if we call the function removeVowelsForWords with this input: ["Irina", "Etza", "Daniel"]
     expected output?:
 */
+
+["__i_a", "___a", "_a_ie_"]
 

@@ -25,3 +25,5 @@ var myElement = document.querySelector("#main");
 
 //Task1. Fix the code
 //Task2. Create a <p> for each repository
+
+//fixed
